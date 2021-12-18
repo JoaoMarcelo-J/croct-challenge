@@ -66,3 +66,19 @@ export const Text2 = styled.small`
   font-weight: 400;
   color: var(--subscription);
 `
+export const CloseBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-right: 2.9rem;
+  margin-top: 3.4rem;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+  }
+`

@@ -6,11 +6,10 @@ import { FileWithPath } from 'react-dropzone'
 type Preview = {
   name: string
   imageURL: string
-  zoom: number
 }
 
 export function Main() {
-  const [preview, setPreview] = useState<Preview>()
+  const [preview, setPreview] = useState<null | Preview>()
   const [error, setError] = useState(false)
 
   const handleUpload = useCallback(async (files: FileWithPath[]) => {
@@ -22,14 +21,20 @@ export function Main() {
     if (type === 'png' || 'jpeg' || 'jpg' || 'svg')
       setPreview({
         name: file.name,
-        imageURL: URL.createObjectURL(file),
-        zoom: 100
+        imageURL: URL.createObjectURL(file)
       })
+    else {
+      setError(true)
+    }
   }, [])
 
   return (
     <S.Wrapper>
-      <UploadInput preview={preview} onUpload={handleUpload} />
+      <UploadInput
+        preview={preview}
+        setPreview={setPreview}
+        onUpload={handleUpload}
+      />
     </S.Wrapper>
   )
 }

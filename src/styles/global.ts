@@ -13,6 +13,8 @@ const GlobalStyles = createGlobalStyle`
     --border: #c7cdd3;
     --text-color: #495567;
     --subscription: #677489;
+    --background-avatar: #c3cbd5;
+    --button:#3d485f;
 
   }
 

@@ -1,9 +1,10 @@
 import * as S from './styles'
 import { BsCardImage } from 'react-icons/bs'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { PreviewImage } from 'components/PreviewImage'
 
-export function UploadInput({ onUpload, preview }: any) {
+export function UploadInput({ onUpload, preview, setPreview }: any) {
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({
       accept: 'image/png, image/svg, image/jpg, image/jpeg',
@@ -11,6 +12,14 @@ export function UploadInput({ onUpload, preview }: any) {
     })
 
   const [type, setType] = useState('dashed')
+
+  useEffect(() => {
+    if (preview) {
+      setType('solid')
+    } else {
+      setType('dashed')
+    }
+  }, [preview])
 
   return (
     <S.Container
@@ -29,9 +38,7 @@ export function UploadInput({ onUpload, preview }: any) {
           <S.Text2>Drop the image here or click to browse.</S.Text2>
         </S.Content>
       ) : (
-        <S.ProfileImage>
-          <img src={preview.imageURL} alt={preview.name} />
-        </S.ProfileImage>
+        <PreviewImage preview={preview} setPreview={setPreview} />
       )}
     </S.Container>
   )
