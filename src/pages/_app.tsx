@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
+import { ThemeContextProvider } from '../hooks/useTheme'
 import GlobalStyles from 'styles/global'
 
 function App({ Component, pageProps }: AppProps) {
@@ -9,8 +10,10 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Croct Front End - Challenge</title>
       </Head>
-      <GlobalStyles />
-      <Component {...pageProps} />
+      <ThemeContextProvider>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </ThemeContextProvider>
     </>
   )
 }

@@ -22,9 +22,10 @@ const isDragReject = css`
 `
 
 export const Container = styled.div<ContainerProps>`
-  background-color: var(--background);
+  background-color: ${(props) => props.theme.colors.background};
   border: 2px var(--border) ${(props) => (props.isDashed ? 'dashed' : 'none')};
   width: min(55.3rem, 100%);
+  margin-bottom: 3rem;
   height: 17.7rem;
   border-radius: 8px;
 
@@ -54,17 +55,17 @@ export const TextHeader = styled.div`
   align-items: center;
 `
 
-export const Text1 = styled.p`
+export const Title = styled.p`
   font-size: 1.4rem;
   margin-left: 1.2rem;
   font-weight: 500;
-  color: var(--text-color);
+  color: ${(props) => props.theme.colors.textColor};
 `
 
-export const Text2 = styled.small`
+export const Subscription = styled.small`
   font-size: 1.4rem;
   font-weight: 400;
-  color: var(--subscription);
+  color: ${(props) => props.theme.colors.subscription};
 `
 export const CloseBox = styled.div`
   display: flex;

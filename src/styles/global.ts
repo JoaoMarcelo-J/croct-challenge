@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
     --subscription: #677489;
     --background-avatar: #c3cbd5;
     --button:#3d485f;
+    --Error: #c64d32;
 
   }
 

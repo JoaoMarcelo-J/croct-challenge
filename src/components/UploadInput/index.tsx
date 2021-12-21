@@ -3,8 +3,24 @@ import { BsCardImage } from 'react-icons/bs'
 import { useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { PreviewImage } from 'components/PreviewImage'
+import { FileWithPath } from 'react-dropzone'
 
-export function UploadInput({ onUpload, preview, setPreview }: any) {
+type Preview = {
+  name: string
+  imageURL: string
+}
+
+interface UploadInputProps {
+  onUpload: (files: FileWithPath[]) => void
+  preview: Preview | null | undefined
+  setPreview: (preview: null | Preview) => void
+}
+
+export function UploadInput({
+  onUpload,
+  preview,
+  setPreview
+}: UploadInputProps) {
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({
       accept: 'image/png, image/svg, image/jpg, image/jpeg',
@@ -33,9 +49,11 @@ export function UploadInput({ onUpload, preview, setPreview }: any) {
           <S.Input {...getInputProps({ multiple: false })} />
           <S.TextHeader>
             <BsCardImage size="15px" />
-            <S.Text1>Organization Logo</S.Text1>
+            <S.Title>Organization Logo</S.Title>
           </S.TextHeader>
-          <S.Text2>Drop the image here or click to browse.</S.Text2>
+          <S.Subscription>
+            Drop the image here or click to browse.
+          </S.Subscription>
         </S.Content>
       ) : (
         <PreviewImage preview={preview} setPreview={setPreview} />

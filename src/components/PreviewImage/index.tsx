@@ -22,6 +22,7 @@ export function PreviewImage({ preview, setPreview }: PreviewProps) {
     <S.Container>
       <S.ImageBox zoom={(zoom[0] * 2) / 100}>
         <Image
+          id="preview-image"
           src={preview.imageURL}
           alt={preview.name}
           width="113px"

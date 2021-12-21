@@ -1,6 +1,6 @@
 import { Range, getTrackBackground } from 'react-range'
 
-interface RangeSlideProps {
+interface RangeInputProps {
   minValue: number
   maxValue: number
   values: number[]
@@ -12,7 +12,7 @@ export function RangeInput({
   maxValue,
   values,
   setValues
-}: RangeSlideProps) {
+}: RangeInputProps) {
   return (
     <Range
       step={0.1}
