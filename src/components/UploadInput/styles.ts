@@ -9,7 +9,7 @@ export const Content = styled.div`
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 2rem;
+  margin-right: 3.5rem;
 `
 
 interface ContainerProps {
@@ -89,16 +89,23 @@ export const CloseBox = styled.div`
 `
 
 export const ImageBox = styled.div`
+  width: 113px;
+  height: 113px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
 
+  z-index: 5;
+  border: 0;
+  border-radius: 50%;
+
+  overflow: hidden;
+  background: ${(props) => props.theme.colors.backgroundAvatar};
+
   img {
-    height: 113px;
-    width: 113px;
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 8px;
-    z-index: 5;
-    left: 2rem;
   }
 `
