@@ -3,9 +3,13 @@ import styled, { css } from 'styled-components'
 export const Content = styled.div`
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+`
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
 `
 
 interface ContainerProps {
@@ -81,5 +85,20 @@ export const CloseBox = styled.div`
       transform: scale(1.2);
       cursor: pointer;
     }
+  }
+`
+
+export const ImageBox = styled.div`
+  display: flex;
+  flex-shrink: 0;
+
+  img {
+    height: 113px;
+    width: 113px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 8px;
+    z-index: 5;
+    left: 2rem;
   }
 `

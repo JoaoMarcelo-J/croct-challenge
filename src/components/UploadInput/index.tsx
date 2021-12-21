@@ -1,9 +1,10 @@
 import * as S from './styles'
 import { BsCardImage } from 'react-icons/bs'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { PreviewImage } from 'components/PreviewImage'
 import { FileWithPath } from 'react-dropzone'
+import { previewContext } from '../../contexts/previewContext'
 
 type Preview = {
   name: string
@@ -21,6 +22,8 @@ export function UploadInput({
   preview,
   setPreview
 }: UploadInputProps) {
+  const { previewUrl } = useContext(previewContext)
+
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({
       accept: 'image/png, image/svg, image/jpg, image/jpeg',
@@ -46,14 +49,22 @@ export function UploadInput({
     >
       {!preview ? (
         <S.Content>
-          <S.Input {...getInputProps({ multiple: false })} />
-          <S.TextHeader>
-            <BsCardImage size="15px" />
-            <S.Title>Organization Logo</S.Title>
-          </S.TextHeader>
-          <S.Subscription>
-            Drop the image here or click to browse.
-          </S.Subscription>
+          {previewUrl && (
+            <S.ImageBox>
+              <img src={previewUrl} alt="Avatar Preview" />
+            </S.ImageBox>
+          )}
+
+          <S.TextContainer>
+            <S.Input {...getInputProps({ multiple: false })} />
+            <S.TextHeader>
+              <BsCardImage size="15px" />
+              <S.Title>Organization Logo</S.Title>
+            </S.TextHeader>
+            <S.Subscription>
+              Drop the image here or click to browse.
+            </S.Subscription>
+          </S.TextContainer>
         </S.Content>
       ) : (
         <PreviewImage preview={preview} setPreview={setPreview} />

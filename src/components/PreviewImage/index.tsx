@@ -2,6 +2,8 @@ import * as S from './styles'
 import Image from 'next/image'
 import { useState } from 'react'
 import { IoClose } from 'react-icons/io5'
+import { useContext } from 'react'
+import { previewContext } from '../../contexts/previewContext'
 
 import { RangeInput } from 'components/RangeInput'
 
@@ -17,12 +19,13 @@ interface PreviewProps {
 
 export function PreviewImage({ preview, setPreview }: PreviewProps) {
   const [zoom, setZoom] = useState<number[]>([50])
+  const { getPreview } = useContext(previewContext)
 
   return (
     <S.Container>
       <S.ImageBox zoom={(zoom[0] * 2) / 100}>
         <Image
-          id="preview-image"
+          id="preview"
           src={preview.imageURL}
           alt={preview.name}
           width="113px"
@@ -41,7 +44,14 @@ export function PreviewImage({ preview, setPreview }: PreviewProps) {
           setValues={setZoom}
         />
 
-        <button>Save</button>
+        <button
+          onClick={() => {
+            getPreview()
+            setPreview(null)
+          }}
+        >
+          Save
+        </button>
       </S.RangeBox>
 
       <S.CloseBox>

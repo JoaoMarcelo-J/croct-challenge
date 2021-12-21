@@ -4,8 +4,8 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--background);
-  border: 2px var(--border) none;
+  background-color: ${(props) => props.theme.colors.background};
+  border: 2px ${(props) => props.theme.colors.border} none;
   margin-bottom: 3rem;
   width: min(55.3rem, 100%);
   height: 17.7rem;
@@ -29,7 +29,7 @@ export const ErrorImage = styled.div`
   border-radius: 50%;
 
   overflow: hidden;
-  background: var(--background-avatar);
+  background: ${(props) => props.theme.colors.backgroundAvatar};
 
   svg {
     color: #fff;
@@ -46,7 +46,7 @@ export const ErrorContent = styled.div`
 `
 
 export const ErrorMessage = styled.p`
-  color: var(--Error);
+  color: ${(props) => props.theme.colors.Error};
   font-weight: 400;
   font-size: 1.6rem;
   margin-bottom: 0.6rem;
@@ -56,10 +56,10 @@ export const TryAgainButton = styled.p`
   display: flex;
   width: 68px;
   cursor: pointer;
-  color: var(--button);
+  color: ${(props) => props.theme.colors.textColor};
   font-weight: 500;
   font-size: 1.6rem;
-  border-bottom: solid 2px var(--button);
+  border-bottom: solid 2px ${(props) => props.theme.colors.textColor};
 
   &:hover {
     opacity: 0.7;
