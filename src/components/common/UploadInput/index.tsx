@@ -2,9 +2,9 @@ import * as S from './styles'
 import { BsCardImage } from 'react-icons/bs'
 import { useEffect, useState, useContext } from 'react'
 import { useDropzone } from 'react-dropzone'
-import { PreviewImage } from 'components/PreviewImage'
+import { PreviewImage } from 'components/common/PreviewImage'
 import { FileWithPath } from 'react-dropzone'
-import { previewContext } from '../../contexts/previewContext'
+import { previewContext } from '../../../contexts/previewContext'
 
 type Preview = {
   name: string

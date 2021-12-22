@@ -3,9 +3,9 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { IoClose } from 'react-icons/io5'
 import { useContext } from 'react'
-import { previewContext } from '../../contexts/previewContext'
+import { previewContext } from '../../../contexts/previewContext'
 
-import { RangeInput } from 'components/RangeInput'
+import { RangeInput } from 'components/common/RangeInput'
 
 declare type Preview = {
   name: string
