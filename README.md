@@ -1,6 +1,11 @@
 
 # Croct Front-end challenge
 
+<br/>
+<br/>
+
+![croct-challenge](https://camo.githubusercontent.com/7941cf6ceeeab043bd2db3c99d1f6933b30f7304624cd4c8e07521e163309282/68747470733a2f2f73766773686172652e636f6d2f692f5242412e737667)
+
 
 
 This project uses lot of stuff as:
@@ -35,7 +40,3 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 - `start`: starts a simple server with the build production code
 - `test`: runs jest to test all components and pages
 
-<br/>
-<br/>
-
-![croct-challenge](https://camo.githubusercontent.com/7941cf6ceeeab043bd2db3c99d1f6933b30f7304624cd4c8e07521e163309282/68747470733a2f2f73766773686172652e636f6d2f692f5242412e737667)
