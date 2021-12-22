@@ -7,7 +7,7 @@ import { previewContext } from '../../../contexts/previewContext'
 
 import { RangeInput } from 'components/common/RangeInput'
 
-declare type Preview = {
+type Preview = {
   name: string
   imageURL: string
 }

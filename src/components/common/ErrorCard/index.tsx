@@ -2,11 +2,11 @@ import * as S from './styles'
 import { BsExclamationCircleFill } from 'react-icons/bs'
 import { IoClose } from 'react-icons/io5'
 
-export function ErrorCard({
-  setError
-}: {
+interface ErrorCardProps {
   setError: (error: boolean) => void
-}) {
+}
+
+export function ErrorCard({ setError }: ErrorCardProps) {
   return (
     <S.Container>
       <S.ContentContainer>
