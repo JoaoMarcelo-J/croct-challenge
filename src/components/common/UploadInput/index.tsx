@@ -1,9 +1,8 @@
 import * as S from './styles'
 import { BsCardImage } from 'react-icons/bs'
 import { useEffect, useState, useContext } from 'react'
-import { useDropzone } from 'react-dropzone'
+import { useDropzone, FileWithPath } from 'react-dropzone'
 import { PreviewImage } from 'components/common/PreviewImage'
-import { FileWithPath } from 'react-dropzone'
 import { previewContext } from '../../../contexts/previewContext'
 
 type Preview = {
@@ -33,11 +32,7 @@ export function UploadInput({
   const [type, setType] = useState('dashed')
 
   useEffect(() => {
-    if (preview) {
-      setType('solid')
-    } else {
-      setType('dashed')
-    }
+    preview ? setType('solid') : setType('dashed')
   }, [preview])
 
   return (
@@ -55,7 +50,7 @@ export function UploadInput({
             </S.ImageBox>
           )}
 
-          <S.TextContainer>
+          <S.TextContainer previewUrl={previewUrl}>
             <S.Input {...getInputProps({ multiple: false })} />
             <S.TextHeader>
               <BsCardImage size="15px" />

@@ -1,12 +1,10 @@
+/* eslint-disable no-constant-condition */
 import * as S from './styles'
 import UploadInput from 'components/common/UploadInput'
 import { useState, useCallback } from 'react'
 import { FileWithPath } from 'react-dropzone'
 import { ErrorCard } from 'components/common/ErrorCard'
-import { useTheme } from '../../../hooks/useTheme'
-import { useContext } from 'react'
-import { ThemeContext } from 'styled-components'
-import Switch from 'react-switch'
+import { SwitchApp } from 'components/common/Switch'
 
 type Preview = {
   name: string
@@ -16,9 +14,6 @@ type Preview = {
 export function Main() {
   const [preview, setPreview] = useState<null | Preview>()
   const [error, setError] = useState(false)
-  const { toggleTheme } = useTheme()
-
-  const { title } = useContext(ThemeContext)
 
   const handleUpload = useCallback(async (files: FileWithPath[]) => {
     try {
@@ -26,7 +21,6 @@ export function Main() {
 
       const type = file.type.split('/')[1]
 
-      // eslint-disable-next-line no-constant-condition
       if (type === 'png' || 'jpeg' || 'jpg' || 'svg')
         setPreview({
           name: file.name,
@@ -48,17 +42,7 @@ export function Main() {
       ) : (
         <ErrorCard setError={setError} />
       )}
-      <Switch
-        onChange={toggleTheme}
-        checked={title === 'dark'}
-        checkedIcon={false}
-        uncheckedIcon={false}
-        height={10}
-        width={40}
-        handleDiameter={20}
-        offColor="#90ee90"
-        onColor="#00173D"
-      />
+      <SwitchApp />
     </S.Wrapper>
   )
 }

@@ -6,10 +6,14 @@ export const Content = styled.div`
   justify-content: space-around;
   align-items: center;
 `
-export const TextContainer = styled.div`
+interface TextContainerProps {
+  previewUrl?: string
+}
+
+export const TextContainer = styled.div<TextContainerProps>`
   display: flex;
   flex-direction: column;
-  margin-right: 3.5rem;
+  margin-right: ${(props) => (props.previewUrl ? '3.5rem' : '0')};
 `
 
 interface ContainerProps {
@@ -38,20 +42,6 @@ export const Container = styled.div<ContainerProps>`
 `
 
 export const Input = styled.input``
-
-export const ProfileImage = styled.div`
-  width: 113px;
-  height: 113px;
-  border-radius: 50%;
-
-  overflow: hidden;
-  img {
-    transform: scale(1);
-    width: 113px;
-    height: 113px;
-    object-fit: cover;
-  }
-`
 
 export const TextHeader = styled.div`
   display: flex;
@@ -89,12 +79,12 @@ export const CloseBox = styled.div`
 `
 
 export const ImageBox = styled.div`
-  width: 113px;
-  height: 113px;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  width: 113px;
+  height: 113px;
+  display: flex;
 
   z-index: 5;
   border: 0;
